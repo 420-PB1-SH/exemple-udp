@@ -15,7 +15,7 @@ int main()
 
     string message;
 
-    setlocale(LC_ALL, "fr");
+    setlocale(LC_ALL, "");
 
     // Attacher le socket au port du serveur
     if (socket.bind(portServeur) != sf::Socket::Done) {

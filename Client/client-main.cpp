@@ -16,9 +16,10 @@ int main()
     unsigned short portClient;
     unsigned short portPaquetEntrant;
 
-    string message;
+    string messageSortant;
+    string messageEntrant;
 
-    setlocale(LC_ALL, "fr");
+    setlocale(LC_ALL, "");
 
     // Attacher le socket à un port
     // AnyPort indique d'utiliser un port assigné par le système
@@ -40,8 +41,8 @@ int main()
     // Tant que le programme n'est pas arrêté par l'utilisateur
     while (true) {
         cout << "Entrer un message: ";
-        getline(cin, message);
-        paquetSortant << message;
+        getline(cin, messageSortant);
+        paquetSortant << messageSortant;
 
         socket.send(paquetSortant, adresseServeur, portServeur);
 
@@ -50,10 +51,10 @@ int main()
         if (selecteur.wait(sf::seconds(5))) {
             socket.receive(paquetEntrant, adressePaquetEntrant, portPaquetEntrant);
 
-            paquetEntrant >> message;
+            paquetEntrant >> messageEntrant;
 
             cout << "Le serveur (" << adressePaquetEntrant << ":" << portPaquetEntrant
-                << ") a retourné : " << message << endl;
+                << ") a retourné : " << messageEntrant << endl;
         }
         else {
             cout << "Le serveur n'a retourné aucune réponse après 5 secondes." << endl;
