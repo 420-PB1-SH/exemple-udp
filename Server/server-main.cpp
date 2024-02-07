@@ -28,7 +28,8 @@ int main()
     // Tant que le programme n'est pas arrêté par l'utilisateur
     while (true) {
         // socket.receive est bloquant.
-        // L'exécution ne continuera pas tant que des données ne sont pas reçues.
+        // L'exécution du programme ne continuera pas tant que
+        // des données ne seront pas reçues.
         socket.receive(paquetEntrant, adresseClient, portClient);
 
         paquetEntrant >> message;

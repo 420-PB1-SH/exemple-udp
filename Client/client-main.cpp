@@ -22,7 +22,7 @@ int main()
     setlocale(LC_ALL, "");
 
     // Attacher le socket à un port
-    // AnyPort indique d'utiliser un port assigné par le système
+    // AnyPort indique d'utiliser un port assigné par le système d'exploitation
     if (socket.bind(sf::Socket::AnyPort) != sf::Socket::Done) {
         cout << "Une erreur est survenue lors de la création du socket." << endl;
         return 1;
